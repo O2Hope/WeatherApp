@@ -26,3 +26,14 @@
   from { transform: rotate(0deg); }
   to { transform: rotate(360deg); }
 }
+
+.detail{
+  background-color: #222;
+  height: 85vh;
+  width:100%;
+  padding-left:15px;
+}
+
+.container-fluid{
+  padding: 0px;
+}
