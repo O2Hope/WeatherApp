@@ -27,9 +27,10 @@ class WeatherLocation extends Component {
         const {city} = this.state;
         const api = `http://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${key}&units=metric`
         fetch(api)
-            .then(data => {
-                return data.json();
-            }).then(weather_data => {
+            .then(
+                data => data.json()
+            ).then(
+                weather_data => {
                 const data = transformWeather(weather_data);
                 this.setState({ data })
             });
