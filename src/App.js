@@ -1,11 +1,15 @@
 import React, { Component } from 'react';
+import store from './store'
 import { Grid, Row, Col } from 'react-flexbox-grid';
+import {Provider} from 'react-redux'
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
 import Paper from 'material-ui/Paper';
 import AppBar from 'material-ui/AppBar';
 import LocationList from './components/LocationList';
-import './App.css';
 import ForecastExtended from './components/ForecastExtended';
+import Posts from './components/Posts'
+import './App.css';
+import PostForm from './components/Posts/PostForm';
 
 const cities = [
   'Mexico',
@@ -31,6 +35,7 @@ class App extends Component {
   render() {
     const { city } = this.state;
     return (
+      <Provider store={store}>
       <MuiThemeProvider>
         <Grid fluid>
           <Row>
@@ -53,8 +58,17 @@ class App extends Component {
               </Paper>
             </Col>
           </Row>
+          <Row>
+            <Col xs={12} md={6}>
+                  <Posts/>
+            </Col>
+            <Col xs={12} md={6}>
+            <PostForm/>
+            </Col>
+          </Row>
         </Grid>
       </MuiThemeProvider>
+      </Provider>
     );
   }
 }
